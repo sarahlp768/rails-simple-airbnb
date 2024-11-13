@@ -1,0 +1,20 @@
+<h1 class="text-center"> All our Flats </h1>
+<p class="text-center"> <%= "All #{@flats.count} flats." %> </p>
+
+<div class="flats-grid">
+  <% @flats.each do |flat| %>
+    <div class="flat-container">
+      <h2> <%= flat.name %> </h2>
+      <p> Address: <%= flat.address %> </p>
+      <div>
+        <i class="fa-solid fa-person-shelter"></i> <span> Number of guests: <%= flat.number_of_guests %> </span>
+      </div>
+      <div>
+        <i class="fa-solid fa-euro-sign"></i> <span> Price per night: <%= flat.price_per_night %> </span>
+      </div>
+      <div>
+        <%= link_to "More info", flat_path(flat) %>  <!-- Fix: Added flat path -->
+      </div>
+    </div>
+  <% end %>
+</div>

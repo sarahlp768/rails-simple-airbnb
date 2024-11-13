@@ -1,9 +1,14 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'faker'
+
+puts 'Creating 20 fake flats...'
+20.times do
+  flat = Flat.new(
+    name: Faker::CryptoCoin.coin_name,
+    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    description: Faker::Adjective.positive,
+    price_per_night: ["100", "200", "300", "400", "500"].sample,
+    number_of_guests: ["1", "2", "3", "4", "5", "6", "20"].sample
+  )
+  flat.save!
+end
+puts 'Finished!'

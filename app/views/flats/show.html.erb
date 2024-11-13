@@ -1,0 +1,13 @@
+<div class="container bg-white p-4 rounded shadow-sm text-center">
+  <h2 class="my-4 text-primary">
+    <strong><%= @flat.name %></strong>
+  </h2>
+
+  <p class="text-dark"><strong>Address:</strong> <%= @flat.address %></p>
+  <p class="text-dark"><strong>Description:</strong> <%= @flat.description %></p>
+
+  <div class="d-flex justify-content-center mt-4 gap-3">
+    <%= link_to "Back to homepage", flats_path, class: "btn btn-outline-success btn-lg" %>
+  </div>
+
+</div>
